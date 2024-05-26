@@ -18,6 +18,12 @@ public class Main {
         Medidor medidor = new Medidor(new WeatherChannelService(url),
                 List.of(new ConsoleClima(), new RegistroEnDiscoClima(path)));
         medidor.leerTemperatura();
-
     }
 }
+
+/*
+Actividad 3: No creo que sea buena idea agregar Decorator porque su proposito no
+se adecua al objetivo del sistema. El Decorator nos permite añadir
+funcionalidades a un componente de forma dinamica sin tener que recurrir
+a temas de herencia.
+ */
