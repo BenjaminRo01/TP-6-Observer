@@ -1,16 +1,21 @@
 package model;
 
-public class Medidor {
+import java.util.List;
+
+public class Medidor extends Observable{
     private String temperatura;
     private ClimaOnline clima;
 
-    public Medidor(ClimaOnline clima) {
+    public Medidor(ClimaOnline clima, List<Observer> observers) {
         this.clima = clima;
+        for(Observer o : observers){
+            this.agregarObserver(o);
+        }
     }
 
-    public String leerTemperatura() {
+    public void leerTemperatura() {
         //leo la temperatura del servicio web
         this.temperatura = this.clima.temperatura();
-        return this.temperatura;
+        this.notificarTemperaturaAObservers(this.temperatura);
     }
 }

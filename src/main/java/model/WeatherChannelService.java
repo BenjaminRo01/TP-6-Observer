@@ -31,7 +31,7 @@ public class WeatherChannelService implements ClimaOnline {
 
                 JSONObject jsonObject = new JSONObject(informacion.toString());
                 double temperatura = jsonObject.getJSONObject("main").getDouble("temp");
-                strTemperatura = temperatura + "°C";
+                strTemperatura = String.valueOf(temperatura);
             }
         }
         catch(Exception e) {
